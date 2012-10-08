@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D50b" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Categories" representedClassName="Categories" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PostItem" inverseName="categories" inverseEntity="PostItem" syncable="YES"/>
+    </entity>
+    <entity name="Gallery" representedClassName="Gallery" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumb" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="post" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PostItem" inverseName="gallery" inverseEntity="PostItem" syncable="YES"/>
+    </entity>
+    <entity name="PostItem" representedClassName="PostItem" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="imdb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="metacritic" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rank" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rottentomatoes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categories" inverseName="posts" inverseEntity="Categories" syncable="YES"/>
+        <relationship name="gallery" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Gallery" inverseName="post" inverseEntity="Gallery" syncable="YES"/>
+        <relationship name="trailers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Trailers" inverseName="post" inverseEntity="Trailers" syncable="YES"/>
+    </entity>
+    <entity name="Preferences" representedClassName="Preferences" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Trailers" representedClassName="Trailers" syncable="YES">
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="post" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PostItem" inverseName="trailers" inverseEntity="PostItem" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Categories" positionX="-191" positionY="-159" width="128" height="75"/>
+        <element name="Gallery" positionX="90" positionY="-288" width="128" height="90"/>
+        <element name="PostItem" positionX="160" positionY="192" width="128" height="240"/>
+        <element name="Preferences" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Trailers" positionX="198" positionY="-54" width="128" height="75"/>
+    </elements>
+</model>
